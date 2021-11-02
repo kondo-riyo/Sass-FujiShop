@@ -20,6 +20,7 @@ export interface orderInfoDataType {
 
 export interface idNameType {
     // orderId?: string;
-    uid?: string;
+    uid?: string|undefined;
     name?: string;
+    orderId?:string
 }
