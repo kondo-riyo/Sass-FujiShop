@@ -3,13 +3,13 @@ import { userInfoType } from "./userInfoType"
 export interface cartItemType {
     itemId?:number|string;
     itemName?:string;
-    itemPrice?:number;
+    itemPrice?:number|undefined;
     itemImg?:string;
-    itemNum?:number;
+    itemNum?:number|undefined;
     toppings?: toppingType[]|null;
     orderId?:string;
     status?:0,
-    allToppingPrice?:number;
+    allToppingPrice?:number|undefined;
     totalPrice?:number;
     specialId?:string
 }
@@ -31,8 +31,8 @@ export interface orderInfoType {
     deliveryTime: string,
     payment: number,
     creditCardNum: string,
-    selectPayment: boolean
-
+    selectPayment: boolean,
+    allPrice?:number|undefined
 }
 
 export interface orderedItemType {

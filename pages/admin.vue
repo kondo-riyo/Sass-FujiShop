@@ -1,5 +1,5 @@
 <template>
-<div class="bg-base_gray bg-opacity-50 sm:bg-starbucks bg-center bg-cover bg-no-repeat">
+<div class="bg-base_gray bg-opacity-50 sm:bg-starbucks bg-center bg-cover bg-no-repeat" v-if='userFromStore'>
     <!-- 管理者画面ログイン password=123456-->
     <div 
      v-show="userFromStore.uid!='NAkxF849wXcbaIf9gdvBIINweOi1' && !adminPassword"
@@ -80,7 +80,8 @@
         w-full
         sm:w-3/4 sm:max-h-96
         m-1 sm:m-0
-        ">
+        "
+        >
             <div class="divide-y bg-white bg-opacity-70">
             <div 
             v-for="(user, index) in adminFromStore" :key="user.orderId"

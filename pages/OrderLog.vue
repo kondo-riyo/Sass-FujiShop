@@ -210,7 +210,7 @@ export default Vue.extend({
     };
   },
   computed: {
-    getOrderLogs(): orderItemType[] {
+    getOrderLogs(): orderedItemType[] {
       return CartStore.getOrderLog;
     },
   },
