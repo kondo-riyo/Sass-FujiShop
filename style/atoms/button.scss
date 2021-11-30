@@ -1,0 +1,30 @@
+// $gray-400: #a0a1a3;
+// $gray-500: #6b7280;
+// $base_red: #877667;
+// $base_orange: #bd5c47;
+// $base_cream: #f2e0ca;
+// $base_green: #3f582e;
+// $base_gray: #998675;
+// $base_of: #f6f5f1;
+// $base_yellow: #f0e4d5;
+// $base_brown: #593315;
+@import '../main.scss';
+
+.disable-button {
+  background-color: $gray-400;
+  color: $gray-500;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.rounded-bottun {
+  background-color: $base_red;
+  color: $base_cream;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+}
+.rounded-bottun:hover {
+  background-color: $base_orange;
+}
