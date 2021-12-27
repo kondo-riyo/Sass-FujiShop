@@ -3,25 +3,11 @@
     <select 
      :name="name" 
      @change="updateValue"
-     class="
-        appearance-none
-        block
-        w-full
-        bg-base_gray bg-opacity-25
-        text-base_green
-        border border-gray-200
-        rounded
-        py-3
-        px-4
-        leading-tight
-        focus:outline-none focus:bg-white focus:border-gray-500
-     "
+     class="input__base"
     >
-      <!-- <template v-for="(option, index) in options"> -->
         <option v-for="(option, index) in options" :value="option.value" :key="index">
           {{ option.label }}
         </option>
-      <!-- </template> -->
     </select>
   </fieldset>
 </template>
@@ -48,3 +34,7 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import "../../../style/atoms/input.scss";
+
+</style>

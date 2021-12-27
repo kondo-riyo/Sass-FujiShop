@@ -24,6 +24,7 @@
     "jwt-decode": "^3.1.2",
     "lodash.clonedeep": "^4.5.0",
     "nuxt": "^2.15.8",
+    "sass": "^1.45.1",
     "swiper": "^5.4.5",
     "tailwindcss": "^2.2.7",
     "universal-cookie": "^4.0.4",

@@ -1,5 +1,5 @@
 <template>
-    <button
+    <!-- <button
       class="
         bg-base_red
         hover:bg-base_orange
@@ -10,6 +10,11 @@
         rounded-full
         "
         @click="click"
+    ><slot />
+    </button>     -->
+    <button
+      class="rounded-button"
+      @click="click"
     ><slot />
     </button>    
 </template>
@@ -24,3 +29,7 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss">
+  @import "../../../style/atoms/button.scss";
+  
+</style>
