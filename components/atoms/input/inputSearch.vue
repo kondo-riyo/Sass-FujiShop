@@ -1,5 +1,6 @@
 <template>
-  <input
+  <div>
+  <!-- <input
     @input="onInput"
     class="
       w-1/2
@@ -20,7 +21,12 @@
       mb-0
       ml-auto
     "
+  /> -->
+  <input
+    @input="onInput"
+    class="input__search"
   />
+  </div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
@@ -33,3 +39,6 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../../../style/atoms/input.scss";
+</style>

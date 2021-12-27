@@ -23,3 +23,7 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss">
+  @import "../../../style/atoms/button.scss";
+
+</style>

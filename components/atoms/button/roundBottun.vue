@@ -13,7 +13,7 @@
     ><slot />
     </button>     -->
     <button
-      class="rounded-bottun"
+      class="rounded-button"
       @click="click"
     ><slot />
     </button>    

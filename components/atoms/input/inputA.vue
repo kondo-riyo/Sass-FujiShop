@@ -1,5 +1,5 @@
 <template>
-  <input
+  <!-- <input
     :value="value"
     @input="onInput"
     class="
@@ -14,6 +14,14 @@
       leading-tight
       focus:outline-none focus:bg-white focus:border-gray-500
       "
+      :type="type"
+      :name="name"
+      :placeholder="placeholder"
+ /> -->
+  <input
+    :value="value"
+    @input="onInput"
+    class="input__base"
       :type="type"
       :name="name"
       :placeholder="placeholder"
@@ -37,3 +45,6 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss">
+@import "../../../style/atoms/input.scss";
+</style>
