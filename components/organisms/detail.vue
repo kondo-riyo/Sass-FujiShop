@@ -1,93 +1,54 @@
 <template>
-  <div class="sm:flex my-0 mx-auto">
-    <div class="flex flex-col">
-      <div class="sm:mr-5 my-0 mx-auto">
-        <img :src="itemDetail.img" class="rounded-xl w-72 h-72" />
+  <div class="detail">
+    <div class="detail__img">
+      <div>
+        <img :src="itemDetail.img" />
       </div>
 
       <rings @selectRing="changeImg" :item="itemDetail" />
     </div>
     <div
-      class="
-        flex flex-col
-        justify-center
-        bg-white
-        p-3
-        sm:p-5
-        rounded-xl
-        sm:w-3/4
-        w-80
-      "
+      class="detail__msg"
     >
       <div>
-        <p
-          class="text-gray-700 text-2xl sm:text-3xl font-semibold sm:font-bold"
-        >
+        <p class="detail__msg__name">
           {{ itemDetail.name }}
         </p>
       </div>
-      <div class="mt-5">
+      <div class="detail__msg__price ">
         <p>
-          <span class="text-xl sm:text-3xl">￥{{ itemDetail.price }}</span>
+          <span>￥{{ itemDetail.price }}</span>
           税込
         </p>
       </div>
       <div>
-        <p class="block my-2 sm:my-4 sm:text-xl">
+        <p class="detail__msg__ex">
           {{ itemDetail.description }}
         </p>
       </div>
 
-      <div class="flex">
-        <div class="flex items-center">
-          <span class="mr-3">
+      <div class="detail__num">
+        <div>
+          <span class="detail__num__font">
             <font style="vertical-align: inherit">
               <font style="vertical-align: inherit">個数</font>
             </font>
           </span>
-          <div class="relative">
+          <div class="detail__num__select ">
             <select
-              class="
-                rounded
-                border
-                appearance-none
-                border-gray-300
-                py-2
-                focus:outline-none
-                focus:ring-2
-                focus:ring-base_orange
-                focus:border-base_orange
-                text-base
-                pl-3
-                pr-10
-              "
               @change="updateValue"
             >
               <option v-for="(num, index) in options" :key="index" :value="num">
                 {{ num }}
               </option>
             </select>
-            <span
-              class="
-                absolute
-                right-0
-                top-0
-                h-full
-                text-center text-gray-600
-                pointer-events-none
-                flex
-                w-4
-                items-center
-                justify-center
-              "
-            >
+            <span>
               <svg
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                class="w-4 h-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M6 9l6 6 6-6"></path>
@@ -128,3 +89,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+  @import "../../style/organisms/detail.scss";
+
+</style>

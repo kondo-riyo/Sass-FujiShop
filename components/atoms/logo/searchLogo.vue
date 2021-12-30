@@ -1,7 +1,7 @@
 <template>
         <img
         src="../../../assets/img/search.webp"
-        class="block w-6 mr-auto mt-10"
+        class="search-logo__img"
         @click="search"
       />
 </template>
@@ -16,3 +16,11 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss">
+.search-logo__img {
+  display: block;
+  width: 1.5rem;
+  margin-right: auto;
+  margin-top: 2.5rem;
+}
+</style>

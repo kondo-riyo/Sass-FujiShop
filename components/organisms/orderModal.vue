@@ -1,39 +1,39 @@
 <template>
   <div>
     <div id="overlay" @click.self="$emit('close')">
-      <div id="content" class="sm:w-1/2">
+      <div id="content" class="order_modal">
         <p
-          class="bg-base_gray rounded-full text-center w-7"
+          class="order_modal__cross"
           @click="$emit('close')"
         >
           ×
         </p>
-        <div class="sm:m-3">
-          <div class="sm:flex text-left mx-4 sm:m-4">
-            <div class="sm:w-2/5 text-base_gray sm:px-10">注文者</div>
-            <div class="sm:w-3/5">{{ orderInfo.name }} さん</div>
+        <div class="order_modal__msg">
+          <div>
+            <div class="title">注文者</div>
+            <div class="id_data">{{ orderInfo.name }} さん</div>
           </div>
-          <div class="text-left mx-4 sm:m-4 sm:flex">
-            <div class="sm:w-2/5 text-base_gray sm:px-10">お届け先</div>
-            <div class="sm:w-3/5">{{ orderInfo.address }}</div>
+          <div class="order_modal__msg">
+            <div class="title">お届け先</div>
+            <div class="id_data">{{ orderInfo.address }}</div>
           </div>
-          <div class="sm:flex text-left mx-4 sm:m-4">
-            <div class="sm:w-2/5 text-base_gray sm:px-10">電話番号</div>
-            <div class="sm:w-3/5">{{ orderInfo.tel }}</div>
+          <div class="order_modal__msg">
+            <div class="title">電話番号</div>
+            <div class="id_data">{{ orderInfo.tel }}</div>
           </div>
-          <div class="sm:flex text-left mx-4 sm:m-4">
-            <div class="sm:w-2/5 text-base_gray sm:px-10">メール</div>
-            <div class="sm:w-3/5">{{ orderInfo.email }}</div>
+          <div class="order_modal__msg">
+            <div class="title">メール</div>
+            <div class="id_data">{{ orderInfo.email }}</div>
           </div>
-          <div class="sm:flex text-left mx-4 sm:m-4">
-            <div class="sm:w-2/5 text-base_gray sm:px-10">配達日時</div>
-            <div class="sm:w-3/5">
+          <div class="order_modal__msg">
+            <div class="title">配達日時</div>
+            <div class="id_data">
               {{ orderInfo.deliveryDate }} {{ orderInfo.deliveryTime }}時
             </div>
           </div>
-          <div class="sm:flex text-left mx-4 sm:m-4">
-            <div class="sm:w-2/5 text-base_gray sm:px-10">支払状況</div>
-            <div data-testid="paymentStatus" class="sm:w-3/5">
+          <div class="order_modal__msg">
+            <div class="title">支払状況</div>
+            <div data-testid="paymentStatus" class="id_data">
               {{ status | paymentStatus }}
             </div>
           </div>
@@ -42,7 +42,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import Vue from 'vue';
 
@@ -78,7 +77,9 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss">
+  @import "../../style/organisms/orderModal.scss";
+
 #overlay {
   /*要素を重ねた時の順番*/
   z-index: 1;

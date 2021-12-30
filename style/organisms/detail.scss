@@ -1,0 +1,115 @@
+@import "../main.scss";
+
+.detail {
+  margin: 0px auto;
+  @media (min-width: 640px) {
+    display: flex;
+  }
+}
+.detail__img {
+  display: flex;
+  flex-direction: column;
+}
+.detail__img div {
+  margin: 0px auto;
+  @media (min-width: 640px) {
+    margin-right: 1.25rem;
+  }
+}
+.detail__img img {
+  border-radius: 0.75rem;
+  width: 18rem;
+  height: 18rem;
+}
+
+.detail__msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  width: 20rem;
+
+  @media (min-width: 640px) {
+    padding: 1.25rem;
+    width: 75%;
+  }
+}
+.detail__msg__name {
+  color: $base_brown;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  @media (min-width: 640px) {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+  }
+}
+.detail__msg__price {
+  margin-top: 1.25rem;
+  p {
+    span {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      @media (min-width: 640px) {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+    }
+  }
+}
+.detail__msg__ex {
+  display: block;
+  margin: 0.5rem;
+  @media (min-width: 640px) {
+    margin: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.detail__num {
+  display: flex;
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
+.detail__num__font {
+  margin-right: 0.75rem;
+}
+.detail__num__select {
+  position: relative;
+}
+.detail__num__select select {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  appearance: none;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+}
+.detail__num__select select:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border: 0.3rem solid $base_orange;
+  padding: 0.2rem 2.2rem 0.3rem 0.45rem;
+}
+.detail__num__select span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  color: $base_orange;
+  height: fit-content;
+  width: 1rem;
+  text-align: center;
+  pointer-events: none;
+}
+.detail__num__select span {
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}

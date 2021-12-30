@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3 space-x-4 flex p-1 justify-center">
+  <div class="rings">
     <ring-red @selectRing="selectRing" :item="item" />
     <ring-orange @selectRing="selectRing" :item="item" />
     <ring-purple @selectRing="selectRing" :item="item" />
@@ -32,3 +32,11 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+.rings {
+  margin-top: 0.75rem;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: center;
+}
+</style>

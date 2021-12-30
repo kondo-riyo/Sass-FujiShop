@@ -1,0 +1,72 @@
+@import "../main.scss";
+
+@mixin ring {
+  padding: 0.25rem;
+  margin: 0px 5px;
+  border-width: 4px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: 0.8s;
+}
+@mixin ring__inside__circle($color) {
+  display: block;
+  height: 0.75rem;
+  width: 0.75rem;
+  background-color: $color;
+  border-radius: 9999px;
+}
+
+//ringBrown.vue-----------------------
+.ring__brown {
+  @include ring;
+}
+.ring__brown:hover {
+  border-color: $base_gray;
+}
+.ring__brown__incircle {
+  @include ring__inside__circle($base_gray);
+}
+
+//ringCream.vue-----------------------
+.ring__cream {
+  @include ring;
+}
+.ring__cream:hover {
+  border-color: $base_cream;
+}
+.ring__cream__incircle {
+  @include ring__inside__circle($base_cream);
+}
+
+//ringOrange.vue-----------------------
+.ring__orange {
+  @include ring;
+}
+.ring__orange:hover {
+  border-color: rgb(254 240 138);
+}
+.ring__orange__incircle {
+  @include ring__inside__circle(rgb(253 224 71));
+}
+
+//ringPurple.vue-----------------------
+.ring__purple {
+  @include ring;
+}
+.ring__purple:hover {
+  border-color: rgb(233 213 255);
+}
+.ring__purple__incircle {
+  @include ring__inside__circle(rgb(192 132 252));
+}
+
+//ringPurple.vue-----------------------
+.ring__red {
+  @include ring;
+}
+.ring__red:hover {
+  border-color: rgb(254 202 202);
+}
+.ring__red__incircle {
+  @include ring__inside__circle(rgb(248 113 113));
+}

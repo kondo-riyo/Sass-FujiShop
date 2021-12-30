@@ -1,19 +1,10 @@
 <template>
   <div
-    class="
-      p-1
-      border-4
-      rounded-full
-      cursor-pointer
-      hover:border-base_cream hover:scale-105
-      transition
-      transform
-      duration-200
-    "
+    class="ring__cream"
     v-if="item.imgCream"
     @click="selectRing(item.imgCream)"
   >
-    <span class="block h-3 w-3 bg-base_cream rounded-full"> </span>
+    <span class="ring__cream__incircle"> </span>
   </div>
 </template>
 
@@ -28,3 +19,6 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../../../style/atoms/ring.scss";
+</style>
