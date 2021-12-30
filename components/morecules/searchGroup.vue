@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center container mx-6 sm:mt-0">
+  <div class="search_group">
     <input-search @input="inputKeyWord"/>
     <search-logo @search="search" />
   </div>
@@ -33,6 +33,12 @@ export default Vue.extend({
       this.keyword = keyWord;
     },
   },
-
 });
 </script>
+<style lang="scss">
+.search_group {
+  display: flex;
+  align-items: center;
+  margin: 0px 1.5rem;
+}
+</style>

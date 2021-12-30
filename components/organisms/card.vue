@@ -1,43 +1,25 @@
 <template>
-  <div
-    class="
-      flex flex-row
-      sm:flex-col
-      container
-      p-2
-      sm:p-10
-      max-w-xs
-      rounded-xl
-      overflow-hidden
-      shadow
-      hover:shadow-xl
-      transition
-      duration-300
-      m-1
-      sm:m-3
-      bg-white bg-opacity-50
-    "
-  >
-    <div class="sm:w-auto w-1/2">
+  <div class="card">
+    <div class="card__div">
       <router-link
         :to="{
           name: `${routerName}`,
           params: { itemId: item.id },
         }"
       >
-        <img class="rounded-xl sm:w-56 sm:h-56" :src="item.img" />
+        <img class="card__div__img" :src="item.img" />
       </router-link>
     </div>
 
-    <div class="sm:w-auto w-1/2">
+    <div class="card__msg">
       <div >
         <rings @selectRing="changeImg" :item="item" />
-        <h1 class="mt-5 sm:text-lg font-semibold text-center truncate">
+        <h1 class="card__msg__name">
           {{ item.name }}
         </h1>
       </div>
-      <div class="text-center">
-        <span class="mt-2 mx-2">{{ item.price }}円(税込)</span>
+      <div class="card__msg__price">
+        <span class="card__msg__price__span">{{ item.price }}円(税込)</span>
         <span>
           <router-link
             :to="{
@@ -45,7 +27,7 @@
               params: { itemId: item.id },
             }"
           >
-            <round-bottun class="mx-2 mt-2"> 詳細 </round-bottun>
+            <round-bottun class="card__msg__price__detail"> 詳細 </round-bottun>
           </router-link>
         </span>
       </div>
@@ -68,3 +50,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+  @import "../../style/organisms/card.scss";
+
+</style>
