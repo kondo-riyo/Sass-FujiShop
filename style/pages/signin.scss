@@ -1,0 +1,70 @@
+@import "../main.scss";
+
+.signin__base {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  padding: 2.5rem;
+  margin: 2.5rem;
+  max-width: 20rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+.signin__title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: $base_brown;
+  text-align: center;
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: $base_green;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem 1rem;
+}
+
+.signin__input {
+  border-radius: 9999px;
+}
+
+span {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: $base_red;
+}
+
+.signin__pass {
+  display: flex;
+}
+.signin__pass__icon {
+  width: 4rem;
+}
+
+.signin__login {
+  display: block;
+  margin-left: 2.5rem;
+  //   margin: 0 auto;
+  .signin__login_btn {
+    // font-size: 1.125rem;
+    // line-height: 1.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0.5rem 2rem;
+    margin: 1rem;
+    align-self: center;
+  }
+}
+
+.signin__send {
+  align-self: center;
+  color: $base_red;
+}

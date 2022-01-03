@@ -1,28 +1,20 @@
 <template>
-  <div class="grid justify-items-center w-full">
-    <div
-      class="
-        max-w-2xl
-        rounded
-        text-center
-        bg-base_of
-        overflow-hidden
-        rounded-2xl
-        m-5
-      "
-    >
-      <img class="w-full" src="~/assets/img/ordercomp.webp" />
-      <div class="px-6 pt-4 text-base_red">
-        <div v-if="userInfoFromStore" class="font-bold text-xl">
+  <div class="ordercomp">
+    <div class="ordercomp__base">
+      <img src="~/assets/img/ordercomp.webp" />
+      <div class="ordercomp__msg">
+        <div v-if="userInfoFromStore" class="ordercomp__msg__name">
           {{ userInfoFromStore.name }} 様
         </div>
-        <div class="font-bold sm:text-xl my-2">
+        <div class="ordercomp__msg__thank">
           この度はご購入いただきありがとうございました
         </div>
-        <p class="text-base sm:text-lg font-semibold mt-2">
+        <p class="ordercomp__msg__check">
           ご購入いただいた商品は、<br />注文履歴よりご確認いただけます。<br />
         </p>
-        <p class="animate-bounce text-2xl font-bold mt-1 font-base_gray">↓</p>
+        <p class="ordercomp__msg__yaji">
+          ↓
+        </p>
       </div>
       <div>
         <round-bottun>
@@ -31,7 +23,7 @@
           </router-link>
         </round-bottun>
       </div>
-      <div class="py-2">
+      <div class="ordercomp__button">
         <round-bottun>
           <router-link to="/">
           ホームに戻る
@@ -67,3 +59,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../style/pages/orderComp.scss";
+
+</style>

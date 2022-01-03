@@ -1,12 +1,62 @@
 $gray-400: #a0a1a3;
 $gray-500: #6b7280;
-$base_red: #877667;
-$base_orange: #bd5c47;
+// $base_red: #bd5c47;
+$base_red: #994837;
+$base_red--25: #bd5d4785;
+// $base_orange: #bd5c47;
 $base_cream: #f2e0ca;
 $base_green: #3f582e;
 $base_gray: #998675;
 $base_gray: #998675;
 $base_gray--25: rgba(153, 134, 117, 0.25);
 $base_of: #f6f5f1;
-$base_yellow: #f0e4d5;
+$base_of--25: #f6f5f185;
+// $base_yellow: #f0e4d5;
+$base_yellow: #e4b45b;
+$base_yellow--25: #e4b45bb9;
+$base_ocher: #ac7e28;
 $base_brown: #593315;
+
+//flex----------------------------------------
+.flex {
+  display: flex;
+}
+
+//back_onStepボタン----------------------------
+.back_onStep {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem;
+  cursor: pointer;
+}
+.back_onStep__child {
+  background-color: $base_red--25;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  transition: 0.5s;
+  @media (min-width: 640px) {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 1rem;
+  }
+  img {
+    width: 0.75rem;
+    transform: rotate(90deg);
+    @media (min-width: 640px) {
+      width: 1.25rem;
+    }
+  }
+}
+.back_onStep:hover .back_onStep__child {
+  background-color: $base_red--25;
+}
+.back_onStep__msg {
+  color: $base_red;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  margin: 0.75rem 0.5rem;
+  @media (min-width: 640px) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}

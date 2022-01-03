@@ -1,39 +1,17 @@
 <template>
-  <div class="sm:pl-10 p-1 flex">
-    <div class="sm:w-3/4 my-0 mx-auto">
+  <div class="itemId__base">
+    <div class="itemId__base__center">
       <!-- 戻るボタン追加 -->
-      <div @click="back_onStep" class="flex items-center group m-1">
-        <div
-          class="
-            bg-base_aka
-            bg-opacity-30
-            sm:bg-transparent
-            sm:group-hover:bg-base_aka
-            sm:group-hover:bg-opacity-30
-            p-3
-            sm:p-4
-            rounded-full
-          "
-        >
-          <img
-            src="~assets/img/yajirusi_icon.webp"
-            class="transform rotate-90 w-3 sm:w-5"
-          />
-        </div>
-        <div
-          class="
-            text-base_aka
-            text-opacity-80 text-sm
-            sm:text-base
-            font-bold
-            m-3
-            mx-1
-          "
-        >
-          一覧に戻る
-        </div>
+    <div 
+    @click="back_onStep"
+    class="back_onStep">
+      <div class="back_onStep__child">
+        <img src="~assets/img/yajirusi_icon.webp">
       </div>
-      <!-- <div class="mb-5"><h1 class="block ml-2 text-4xl">商品詳細</h1></div> -->
+      <div class="back_onStep__msg">
+        一覧に戻る
+      </div>
+    </div>
 
       <Detail
         :itemDetail="itemDetail"
@@ -41,35 +19,23 @@
         v-model="selectedItemNum"
       />
 
-      <div class="sm:mt-5 mt-2 bg-white p-3 rounded-xl">
-        <p class="mb-3 pl-2 text-xl">
-          トッピング<span class="font-bold"> 少:200円 多:300円</span>
+      <div class="itemId__topping">
+        <p class="itemId__topping__title">
+          トッピング<span> 少:200円 多:300円</span>
         </p>
-        <div class="flex flex-wrap">
+        <div class="itemId__topping__card">
           <div
-            class="sm:w-1/5 w-1/2 p-2 text-center font-bold"
+            class="itemId__topping__card__base"
             v-for="(topping, index) in getToppings"
             :key="topping.id"
           >
-            <div class="bg-base_cream bg-opacity-60 rounded p-1">
+            <div class="topping__card__msg ">
               <p>{{ topping.name }}</p>
               <input
                 data-testid="cal-modalM"
                 type="radio"
                 :name="'radio' + index"
-                class="
-                  hover:bg-gray-400
-                  text-gray-700
-                  font-semibold
-                  hover:text-white
-                  text-sm
-                  border border-gray-400
-                  sm:w-4
-                  w-3
-                  hover:border-transparent
-                  rounded
-                  bg-white
-                "
+                class="margin-left__1"
                 @change="
                   selectToppingSize(
                     topping.name,
@@ -79,25 +45,12 @@
                   )
                 "
               />
-              <span class="font-normal text-sm">少</span>
+              <span>少</span>
               <input
                 data-testid="cal-modalL"
                 type="radio"
                 :name="'radio' + index"
-                class="
-                  sm:ml-2
-                  hover:bg-gray-400
-                  text-gray-700
-                  font-semibold
-                  hover:text-white
-                  text-sm
-                  border border-gray-400
-                  sm:w-4
-                  w-3
-                  hover:border-transparent
-                  rounded
-                  bg-white
-                "
+                class="margin-left__1"
                 @change="
                   selectToppingSize(
                     topping.name,
@@ -107,84 +60,43 @@
                   )
                 "
               />
-              <span class="font-normal text-sm">多</span>
+              <span>多</span>
               <input
                 data-testid="cal-modalNone"
                 type="radio"
                 :checked="true"
                 :name="'radio' + index"
-                class="
-                  sm:ml-2
-                  text-gray-700
-                  font-semibold
-                  hover:text-white
-                  text-sm
-                  border border-gray-400
-                  sm:w-4
-                  w-3
-                  hover:border-transparent
-                  rounded
-                  checked:bg-red-600
-                "
+                class="margin-left__1"
                 @change="
                   selectToppingSize(topping.name, topping.id, 0, 0),
                     clearTopping(topping.id)
                 "
               />
-              <span class="font-normal text-sm">なし</span>
+              <span>なし</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="flex flex-col items-end mt-5">
-        <div class="px-4 sm:py-3 py-1 sm:px-4">
-          <p class="text-gray-700 sm:text-4xl text-xl">
+      <div class="itemId__down">
+        <div class="itemId__down__total">
+          <p>
             合計
-            <span class="font-bold text-4xl">￥{{ calcTotalPrice }}</span>
+            <span>￥{{ calcTotalPrice }}</span>
           </p>
         </div>
-        <div class="flex">
-          <div class="py-1 pr-2 sm:py-2 sm:px-1">
+        <div class="itemId__down__button">
+          <div>
             <squareBottun
               data-testid="addCart"
-              class="
-                text-white
-                font-semibold
-                bg-base_red
-                sm:py-3 sm:px-4
-                py-1
-                px-4
-                rounded
-                transition
-                duration-200
-                transform-gpu
-                hover:scale-105
-                text-xm
-              "
               @click="addCart"
             >
               カートへ追加
             </squareBottun>
           </div>
-          <div class="py-1 pr-2 sm:py-2 sm:px-1">
+          <div>
             <router-link to="/Cart">
-              <squareBottun
-                class="
-                  text-white
-                  font-semibold
-                  bg-base_red
-                  sm:py-3 sm:px-4
-                  py-1
-                  px-4
-                  rounded
-                  transition
-                  duration-200
-                  transform-gpu
-                  hover:scale-105
-                  text-xm
-                "
-              >
+              <squareBottun>
                 カートを確認
               </squareBottun>
             </router-link>
@@ -192,37 +104,16 @@
         </div>
       </div>
 
-      <div @click="back_onStep" class="flex items-center group m-1">
-        <div
-          class="
-            bg-base_aka
-            bg-opacity-30
-            sm:bg-transparent
-            sm:group-hover:bg-base_aka
-            sm:group-hover:bg-opacity-30
-            p-3
-            sm:p-4
-            rounded-full
-          "
-        >
-          <img
-            src="~assets/img/yajirusi_icon.webp"
-            class="transform rotate-90 w-3 sm:w-5"
-          />
-        </div>
-        <div
-          class="
-            text-base_aka
-            text-opacity-80 text-sm
-            sm:text-base
-            font-bold
-            m-3
-            mx-1
-          "
-        >
-          一覧に戻る
-        </div>
+    <div 
+    @click="back_onStep"
+    class="back_onStep">
+      <div class="back_onStep__child">
+        <img src="~assets/img/yajirusi_icon.webp">
       </div>
+      <div class="back_onStep__msg">
+        一覧に戻る
+      </div>
+    </div>
     </div>
   </div>
 </template>
@@ -376,3 +267,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../../style/pages/itemId.scss";
+
+</style>

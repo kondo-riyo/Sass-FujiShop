@@ -1,37 +1,16 @@
 <template>
-  <div class="bg-base_gray bg-opacity-50 sm:bg-starbucks bg-center bg-cover bg-no-repeat flex justify-center">
+  <div class="signin">
     <div class="">
       <div
         type="text"
-        class="
-          sm:h-5/7
-          bg-white bg-opacity-70
-          container
-          mx-auto
-          p-10
-          m-10
-          max-w-xs
-          rounded-lg
-          overflow-hidden
-          shadow
-          flex flex-col
-        "
+        class="signin__base"
       >
         <div>
-          <h1 class="font-bold text-xl text-base_gray text-center">ログイン</h1>
+          <h1 class="signin__title">ログイン</h1>
         </div>
         <ValidationObserver v-slot="{ invalid }">
           <div>
-            <label 
-             class="
-               block
-               uppercase
-               tracking-wide
-               text-base_green text-xs
-               font-bold
-               my-2
-               ml-4
-             ">
+            <label>
              メール
             </label>
             <validation-provider
@@ -46,23 +25,14 @@
                  type="text"
                  placeholder=""
                  @input="inputMail"
-                 class="rounded-full"/>
-              <span class="text-xs text-red-700">
+                 class="signin__input"/>
+              <span>
                 {{ errors[0] }}
               </span>
             </validation-provider>
           </div>
           <div>
-            <label 
-             class="
-               block
-               uppercase
-               tracking-wide
-               text-base_green text-xs
-               font-bold
-               my-2
-               ml-4
-             ">
+            <label>
               パスワード
             </label>
             <validation-provider
@@ -70,7 +40,7 @@
               name="パスワード"
               rules="required"
             >
-            <div class="flex">
+            <div class="signin__pass">
               <inputA
                  data-testid="inputPassword"
                  v-model="userInfo.password"
@@ -78,8 +48,8 @@
                  :type="inputType"
                  placeholder="*******"
                  @input="inputPassword"
-                 class="rounded-full"></inputA>
-               <div data-testid="hidePassword" @click="hidePassword" class="w-16">
+                 class="signin__input"></inputA>
+               <div data-testid="hidePassword" @click="hidePassword" class="signin__pass__icon ">
                  <div v-show="isChecked">
                    <img src="~/assets/img/eye_icon.webp">
                   </div>
@@ -88,23 +58,23 @@
                   </div>
                </div>
             </div>
-              <span class="text-xs text-red-700">
+              <span>
                 {{ errors[0] }}
               </span>
             </validation-provider>
           </div>
-          <div class="block ml-8">
+          <div class="signin__login">
             <round-bottun
             data-testid="roundButton"
             @click="login"
             :disabled="invalid"
-            class="m-4 self-center">
+            class="signin__login_btn">
               ログイン
             </round-bottun>
           </div>
         </ValidationObserver>
-        <div class="self-center">
-          <router-link to="/signup" class="text-blue-700">
+        <div class="signin__send">
+          <router-link to="/signup">
             新規会員登録はこちら
           </router-link>
         </div>
@@ -183,3 +153,18 @@ export default Vue.extend({
     },
   }});
 </script>
+<style lang="scss">
+@import "../style/pages/signin.scss";
+.signin {
+  background-color: $base_gray--25;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @media (min-width: 640px) {
+    background-image: url("../assets/img/coffee-2734137_1280.webp");
+  }
+}
+
+</style>

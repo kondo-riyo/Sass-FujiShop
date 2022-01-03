@@ -1,131 +1,81 @@
 <template>
   <div class="">
-    <div v-if="!moniterCarts" class="grid p-20">
-      <div class="mr-auto ml-auto font-bold sm:text-2xl text-lg">
+    <div v-if="!moniterCarts" class="not_cartTable">
+      <div>
         ※現在カートに商品はありません。
       </div>
     </div>
 
     <div v-if="moniterCarts">
-      <div v-if="moniterCarts.itemInfo.length === 0" class="grid p-20">
-        <div class="mr-auto ml-auto font-bold sm:text-2xl text-lg">
+      <div v-if="moniterCarts.itemInfo.length === 0" class="not_cartTable">
+        <div>
           ※現在カートに商品はありません
         </div>
-        <button
-          class="
-            bg-base_red
-            sm:w-1/3
-            hover:bg-base_orange
-            text-white
-            font-bold
-            py-2
-            px-4
-            rounded-full
-            m-10
-            mr-auto
-            ml-auto
-          "
-        >
+        <button>
           <router-link to="/">商品を選ぶ</router-link>
         </button>
       </div>
-      <div
-        v-if="moniterCarts.itemInfo.length > 0"
-        class="sm:p-4 p-2 grid justify-items-center"
-      >
-        <div class="mt-10 mb-10">
-          <div class="div-auto shadow-xl rounded">
-            <div
-              class="
-                bg-base_red
-                flex
-                sm:p-1
-                rounded
-                text-center
-                text-base_cream
-                sm:text-lg
-                font-bold
-              "
-            >
-              <div class="sm:w-6/12 w-5/12">商品情報</div>
-              <div class="sm:w-2/12 w-2/12">
-                価格<span class="hidden sm:inline">(税抜)</span
-                ><span class="sm:hidden inline">(円)</span>
+      <div v-if="moniterCarts.itemInfo.length > 0" class="cartTable">
+        <div class="cartTable__card">
+          <div class="cartTable__card__div">
+            <div class="cartTable__card__head">
+              <div class="info">商品情報</div>
+              <div class="price">
+                価格<span class="price__zei">(税抜)</span
+                ><span class="price__en">(円)</span>
               </div>
-              <div class="sm:w-1/12 w-2/12">個数</div>
-              <div class="sm:w-2/12 w-2/12">
-                合計<span class="hidden sm:inline">(税抜)</span
-                ><span class="sm:hidden inline">(円)</span>
+              <div class="num">個数</div>
+              <div class="total">
+                合計<span class="total__zei">(税抜)</span
+                ><span class="total__en">(円)</span>
               </div>
-              <div class="sm:w-1/12 w-1/12"></div>
+              <div class="empty"></div>
             </div>
-            <div
-              class="
-                bg-white
-                border-solid
-                rounded
-                border-b-2 border-r-2 border-l-2
-                border-base_red
-              "
-            >
+            <div class="cartTable__card__body">
               <div
                 v-for="cartitem in moniterCarts.itemInfo"
                 :key="cartitem.specialId"
-                class="
-                  flex
-                  shadow-inner
-                  text-center
-                  hover:bg-base_cream hover:bg-opacity-50 hover:shadow
-                  items-center
-                  p-1
-                "
+                class="body"
               >
-                <div class="sm:flex items-center sm:w-6/12 w-5/12">
-                  <img class="rounded sm:w-1/3 w-2/3" :src="cartitem.itemImg" />
-                  <div
-                    class="sm:w-64 w-32 flex flex-col text-left sm:pl-5 sm:mb-5"
-                  >
-                    <div class="">
-                      <p class="sm:text-2xl text-xs font-bold">
+                <div class="body__main">
+                  <img class="" :src="cartitem.itemImg" />
+                  <div class="body__main__msg">
+                      <p>
                         {{ cartitem.itemName }}
                       </p>
-                    </div>
                     <div
                       data-testid="toppingSize"
                       v-for="topping in cartitem.toppings"
                       :key="topping.id"
-                      class="sm:text-sm text-xs"
                     >
                       + {{ topping.name }} ({{ toppingSize(topping.size) }})
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-col sm:w-2/12 w-2/12">
-                  <div class="sm:text-xl text-lg">
+                <div class="body__price">
+                  <div class="body__price__main">
                     {{ cartitem.itemPrice
-                    }}<span class="hidden sm:inline">円</span>
+                    }}<span>円</span>
                   </div>
                   <div
                     v-for="topping in cartitem.toppings"
                     :key="topping.id"
-                    class="sm:text-sm text-xs"
                   >
                     + {{ topping.price
-                    }}<span class="hidden sm:inline">円</span>
+                    }}<span>円</span>
                   </div>
                 </div>
-                <div class="sm:text-xl sm:w-1/12 w-2/12 text-lg">
-                  {{ cartitem.itemNum }}<span class="hidden sm:inline">個</span>
+                <div class="body__num">
+                  {{ cartitem.itemNum }}<span>個</span>
                 </div>
-                <div class="sm:text-2xl sm:w-2/12 w-2/12 text-lg font-bold">
-                  {{ cartitem.totalPrice
-                  }}<span class="hidden sm:inline">円</span>
+                <div class="body__total">
+                  {{ cartitem.totalPrice}}
+                  <span>円</span>
                 </div>
-                <div class="sm:w-1/12 w-1/12">
+                <div class="body__delete">
                   <button
                     title="商品を削除"
                     @click="deleteCartItem(cartitem.specialId)"
-                    class="sm:w-1/2 w-3/4"
                     data-testid="show_cartItems"
                   >
                     <img src="~/assets/img/trash.webp" />
@@ -135,23 +85,15 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col w-full">
-          <div class="text-2xl text-center">
-            合計金額<span class="text-4xl sm:text-6xl font-bold">
+        <div class="cartTable__card__foot">
+          <div class="total__price">
+            合計金額
+            <span>
               {{ allItemsPrice }}</span
             >円
           </div>
-          <div class="mt-10 mb-3 mr-auto ml-auto">
+          <div class="foot__button">
             <button
-              class="
-                bg-base_red
-                hover:bg-base_orange
-                text-white
-                font-bold
-                py-2
-                px-4
-                rounded-full
-              "
               v-show="moniterCarts.itemInfo.length > 0"
             >
               <router-link to="/OrderInfo"> 注文に進む </router-link>
@@ -209,3 +151,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../../../style/templates/cart/cartTable.scss";
+
+</style>

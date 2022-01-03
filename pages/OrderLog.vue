@@ -1,107 +1,68 @@
 <template>
-  <div class="pt-2">
-    <div v-if="getOrderLogs.length === 0" class="grid p-20">
-      <div class="mr-auto ml-auto font-bold sm:text-2xl text-lg">
-        ※注文履歴はありません
+  <div class="orderlog__base">
+    <div v-if="getOrderLogs.length === 0" class="orderlog__not">
+      <div>
+        ※ 注文履歴はありません
       </div>
-      <button
-        class="
-          bg-base_red
-          sm:w-1/3
-          hover:bg-base_orange
-          text-white
-          font-bold
-          py-2
-          px-4
-          rounded-full
-          m-10
-          mr-auto
-          ml-auto
-        "
-      >
+      <button>
         <router-link to="/">商品を選ぶ</router-link>
       </button>
     </div>
     <div
-      class="grid sm:m-5 m-1 justify-items-center"
+      class="orderlog"
       v-if="getOrderLogs.length > 0"
     >
-      <div class="bg-white bg-opacity-60 rounded-xl sm:w-auto w-screen">
-        <div
-          class="
-            bg-base_red
-            text-base_cream
-            font-bold
-            text-xl
-            rounded
-            border-solid border-2
-            border-base_red
-            flex
-          "
-        >
-          <div class="p-1 sm:w-3/4 w-screen sm:text-center text-2xl">
+      <div class="orderlog__table">
+        <div class="orderlog__title">
+          <div class="orderlog__title__item">
             商品情報
           </div>
-          <div class="p-1 sm:w-1/4 text-2xl hidden sm:inline-block">
+          <div class="orderlog__title__deli">
             配達情報
           </div>
         </div>
         <div
           v-for="logItem in getOrderLogs"
           :key="logItem.orderId"
-          class="
-            sm:flex
-            border-solid
-            rounded
-            border-b-2 border-r-2 border-l-2
-            border-base_red
-          "
+          class="orderlog__body"
         >
-          <div class="p-2 sm:w-600">
+          <div class="orderlog__body__item">
             <div
               v-for="item in logItem.itemInfo"
               :key="item.specialId"
-              class="m-1 p-1"
             >
               <!-- アイテム情報 -->
-              <div
-                class="
-                  flex
-                  items-center
-                  sm:w-auto
-                  w-screen
-                  justify-center
-                  sm:h-64
-                "
-              >
-                <div class="sm:w-1/4 w-1/4">
-                  <img class="rounded shadow-xl" :src="item.itemImg" />
+              <div class="orderlog__body__item_info">
+                <div class="orderlog__body__item_img">
+                  <img :src="item.itemImg" />
                 </div>
-                <div class="flex flex-col ml-2 w-3/4 sm:w-96">
-                  <div class="p-1 flex">
-                    <div class="w-3/4 truncate">
-                      <span class="font-bold sm:text-xl">{{
+                <div class="orderlog__body__item_msg">
+                  <div class="orderlog__body__item_name">
+                    <div class="orderlog__body__item_name__name">
+                      <span>{{
                         item.itemName
                       }}</span
                       >×{{ item.itemNum }}
                     </div>
-                    <div class="w-1/4 sm:text-base text-xs">
+                    <div class="orderlog__body__item_name__price">
                       {{ item.itemPrice * item.itemNum }}円
                     </div>
                   </div>
                   <div
-                    class="p-1 sm:text-base text-xs flex"
+                    class="orderlog__body__item_topping"
                     v-for="(topping, index) in item.toppings"
                     :key="index"
                   >
-                    <div class="w-3/4">+{{ topping.name }}</div>
-                    <div class="w-1/4 sm:text-base text-xs">
+                    <div class="orderlog__body__item_topping_name">
+                      +{{ topping.name }}
+                    </div>
+                    <div class="orderlog__body__item_topping_price">
                       {{ topping.price }}円
                     </div>
                   </div>
-                  <div class="p-1 pt-5 flex">
-                    <div class="w-3/4 sm:text-base text-xs">合計</div>
-                    <div class="w-1/4 sm:text-base text-xs">
+                  <div class="orderlog__body__item_total">
+                    <div class="orderlog__body__item_total_msg">合計</div>
+                    <div class="orderlog__body__item_total_price">
                       {{
                         item.itemPrice * item.itemNum + item.allToppingPrice
                       }}円
@@ -110,43 +71,18 @@
                 </div>
               </div>
             </div>
-            <div
-              class="
-                flex
-                items-center
-                border-solid border-t-2
-                border-base_gray
-                border-opacity-20
-                mt-3
-                pt-3
-                pb-3
-              "
-            >
-              <div class="w-16"></div>
-              <div class="sm:text-2xl text-xl sm:pr-0 pr-2 sm:w-2/6">
+            <div class="orderlog__total">
+              <div class="orderlog__total__msg">
                 合計金額
               </div>
-              <div class="sm:text-3xl text-xl font-bold w-1/4">
+              <div class="orderlog__total__price">
                 {{ logItem.orderInfo.allPrice }}円
               </div>
             </div>
           </div>
-          <div
-            class="
-              sm:bg-base_gray
-              sm:bg-opacity-20
-              flex
-              sm:flex-col
-              justify-center
-              items-center
-              px-1
-              py-3
-              sm:w-1/3
-              w-full
-            "
-          >
+          <div class="orderlog__deli">
             <square-bottun 
-             class="sm:mr-0 text-base sm:text-lg" 
+             class="orderlog__deli__delibtn" 
              @click="openModal(logItem)"
             >
               配送情報確認
@@ -159,17 +95,20 @@
                 @close="closeModal"
               ></order-modal>
 
-              <div class="sm:mt-2 ml-1 sm:ml-0">
+              <div class="orderlog__deli__cancel">
                 <square-bottun
-                  class="block text-base sm:text-lg"
+                  class="orderlog__deli__cancel_btn"
                   v-show="logItem.status === 1"
                   @click="cancelOrder(logItem)"
                   data-testid="cancelOrder"
                   >注文キャンセル</square-bottun
                 >
-                <disableButton class="block text-base sm:text-lg" v-show="logItem.status === 9"
-                  >キャンセル済み</disableButton
+                <disableButton 
+                 class="orderlog__deli__cancel_dis" 
+                 v-show="logItem.status === 9"
                 >
+                キャンセル済み
+                </disableButton>
               </div>
             </div>
           </div>
@@ -232,3 +171,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../style/pages/orderLog.scss";
+
+</style>

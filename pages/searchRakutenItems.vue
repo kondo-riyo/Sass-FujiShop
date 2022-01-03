@@ -1,25 +1,29 @@
 <template>
   <div>
-      <div 
+      <!-- <div 
        class="
         flex 
         w-full justify-center items-end 
         text-base_brown mt-4 -mb-2 text-center text-xl sm:text-3xl font-bold
-      ">
-      <div><img src="~/assets/img/Rakuten.webp" class="w-8 sm:w-10"/></div>
+      "> -->
+      <div class="searchItems__title">
+      <div>
+        <!-- <img src="~/assets/img/Rakuten.webp" class="w-8 sm:w-10"/> -->
+        <img src="~/assets/img/Rakuten.webp" class="searchItems__title__icon"/>
+      </div>
       <div class="">楽天商品</div>
       </div>
 
-    <search-group data-testid="search" @searchItems="search" class="my-0 mx-auto" />
+    <search-group data-testid="search" @searchItems="search" class="searchItems__input" />
 
     <!-- 検索エラー表示 -->
-    <div class="text-center block py-5">
+    <div class="searchItems__msg">
       <p v-show="keywordNullFlg">検索ワードを入力して下さい</p>
       <p v-show="searchItemNullFlg">検索ワードにマッチする商品がありません</p>
     </div>
 
     <!-- 検索結果 -->
-    <div v-show="!defaultItemsFlg" class="flex flex-wrap justify-center">
+    <div v-show="!defaultItemsFlg" class="searchItems__card">
       <div v-for="item in searchApiItemsFromStore" :key="item.id">
         <Card :item="item" :routerName="routerName.rakuten" />
       </div>
@@ -28,7 +32,7 @@
     <!-- top30 -->
     <div
       v-show="defaultItemsFlg || keywordNullFlg || searchItemNullFlg"
-      class="flex flex-wrap justify-center"
+      class="searchItems__card"
     >
       <div v-for="item in apiItemsFromStore" :key="item.id">
         <Card :item="item" :routerName="routerName.rakuten" />
@@ -107,3 +111,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../style/pages/searchItems.scss";
+
+</style>

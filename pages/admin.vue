@@ -1,27 +1,24 @@
 <template>
-<div class="bg-base_gray bg-opacity-50 sm:bg-starbucks bg-center bg-cover bg-no-repeat" v-if='userFromStore'>
+<div class="admin" v-if='userFromStore'>
     <!-- 管理者画面ログイン password=123456-->
     <div 
      v-show="userFromStore.uid!='NAkxF849wXcbaIf9gdvBIINweOi1' && !adminPassword"
-     class="flex justify-center"
+     class="admin__login"
     >
-    <div class="bg-base_of bg-opacity-70 rounded-lg sm:w-1/3 text-center mt-20 p-3">
-        <div class="text-md font-bold text-base_gray">管理者パスワード</div>
-        <div class="
-        flex justify-center
-        text-center
-        ">
+    <div class="admin__login__card">
+        <div class="admin__login__card__title ">管理者パスワード</div>
+        <div class="admin__login__card__input">
             <input-a
             name="パスワード"
             type="password"
             placeholder=""
             v-model="adminPassword_num"
-            class="w-full sm:w-3/4 rounded-full text-center"
+            class="admin__login__card__input-a"
             />
             <button @click="adminPassword_push">
             <img 
             src="~/assets/img/yajirusi_icon.webp" 
-            class="transform rotate-270 w-5 sm:w-8 m-1"
+            class="admin__login__card__input-yaji "
             >
             </button>
         </div>
@@ -33,71 +30,37 @@
      class=""
      id="admin_show"
     >
-        <div class="
-        bg-base_of bg-opacity-50
-        py-4
-        text-base_brown
-        ">
-        <div class="
-        text-center 
-        font-bold text-xl sm:text-2xl
-        ">
+        <div class="admin__page">
+        <div class="admin__page__name">
             ようこそ！ {{userFromStore.name}} さん
         </div>
-        <div class="
-        text-center 
-        text-base
-        sm:text-xl
-        ">
+        <div class="admin__page__msg">
             ここでは各ユーザーの注文履歴の確認、配達状況の変更ができます
         </div>
         </div>
-        <div class="
-        text-center 
-        mt-5 sm:mt-10 mb-2
-        text-base_brown font-bold text-xl sm:text-3xl
-        ">
+        <div class="admin__userInfo">
             ユーザー情報
         </div>
-        <div class="flex justify-center content-start flex-wrap rounded-lg">
-            <div class="flex bg-base_gray text-white w-full sm:w-3/4">
-                <div class="w-1/4 sm:w-1/6 top-0 sm:px-6 sm:py-3 text-center">No.</div>
-                <div class="w-2/4 sm:w-2/6 top-0 sm:px-6 sm:py-3 text-center">名前</div>
-                <div class="w-0 sm:w-2/6 top-0 sm:px-6 sm:py-3 hidden sm:inline-block  text-center">ID</div>
-                <div class="w-1/4 sm:w-1/6 top-0 sm:px-6 sm:py-3 text-center ml-6"></div>
+        <div class="admin__table ">
+            <div class="admin__table__title">
+                <div class="admin__table__title_no">No.</div>
+                <div class="admin__table__title_name">名前</div>
+                <div class="admin__table__title_id">ID</div>
+                <div class="wadmin__table__title_em"></div>
             </div>
-        <div class="
-        flex-grow
-        overflow-auto 
-        w-full 
-        justify-center
-        flex
-        items-center
-        rounded
-        ">
-        <div class="
-        relative
-        w-full
-        sm:w-3/4 sm:max-h-96
-        m-1 sm:m-0
-        "
-        >
-            <div class="divide-y bg-white bg-opacity-70">
+        <div class="admin__table__body">
+        <div class="admin__table__body_base">
+            <div class="admin__table__body_back">
             <div 
             v-for="(user, index) in adminFromStore" :key="user.orderId"
-            class="
-                flex
-                border-base_gray
-                hover:bg-base_of
-                text-base_brown
-            "
+            class="admin__table__stick"
             @click="userLog(user.uid)"
             >
-                    <div class="w-1/4 sm:w-1/6 sm:px-6 py-2 sm:py-4 text-center">{{index+1}}</div>
-                    <div class="w-2/4 sm:w-2/6 sm:px-6 py-2 sm:py-4 text-center">{{user.name}}</div>
-                    <div class="w-0 sm:w-2/6 sm:px-6 py-2 sm:py-4 text-center hidden sm:inline-block">{{user.uid}}</div>
-                    <div class="w-1/4 sm:w-1/6 sm:px-6 py-2 sm:py-4 ml-6">
-                        <img src="~/assets/img/pencil_icon.webp" class="w-6 sm:w-8">
+                    <div class="admin__table__title_no">{{index+1}}</div>
+                    <div class="admin__table__title_name">{{user.name}}</div>
+                    <div class="admin__table__title_id">{{user.uid}}</div>
+                    <div class="admin__table__title_em">
+                        <img src="~/assets/img/pencil_icon.webp">
                     </div>
             </div>
             </div>
@@ -160,3 +123,14 @@ export default Vue.extend({
     }
 })
 </script>
+<style lang="scss">
+@import "../style/pages/admin.scss";
+@import "../style/main.scss";
+.admin {
+  background-color: $base_gray--25;
+  height: 200px;
+  @media (min-width: 640px) {
+    background-image: url("../assets/img/coffee-2734137_1280.webp");
+  }
+}
+</style>

@@ -1,15 +1,11 @@
 <template>
-  <div class="w-screen">
+  <!-- <div class="w-screen"> -->
+  <div class="default">
         <Header
-      class="w-screen text-gray-800"
+      class="default__header"
     />
         <Nuxt
-      class="
-        bg-opacity-25
-        min-h-screen
-        text-gray-800
-        w-screen
-      "
+      class="default__nuxt"
     />
   </div>
 </template>
@@ -43,3 +39,15 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+.default {
+  width: 100vw;
+}
+.default__header {
+  width: 100vw;
+}
+.default__nuxt {
+    width: 100vw;
+  	min-height: 100vh;
+}
+</style>

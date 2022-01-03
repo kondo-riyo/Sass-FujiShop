@@ -1,0 +1,69 @@
+@import "../main.scss";
+
+.ordercomp {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+.ordercomp__base {
+  max-width: 42rem;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: $base_of;
+  overflow: hidden;
+  margin: 1.25rem;
+  img {
+    width: 100%;
+  }
+}
+.ordercomp__msg {
+  padding: 1rem 1.5rem 0 1.5rem;
+  color: $base_gray;
+  .ordercomp__msg__name {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  .ordercomp__msg__thank {
+    font-weight: 700;
+    margin: 0.5rem 0;
+    @media (min-width: 640px) {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+  .ordercomp__msg__check {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    @media (min-width: 640px) {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+  .ordercomp__msg__yaji {
+    font-weight: 700;
+    color: $base_gray;
+    margin-top: 0.25rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+    animation: bounce 1s infinite;
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  }
+}
+.ordercomp__button {
+  padding: 0.5rem 0;
+}

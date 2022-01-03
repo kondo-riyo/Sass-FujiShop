@@ -1,0 +1,76 @@
+@import "../main.scss";
+
+.header {
+  width: 100vw;
+  background-color: $base_of;
+  padding: 0.5rem;
+  align-items: center;
+  @media (min-width: 640px) {
+    display: flex;
+    padding: 1.5rem 0.5rem;
+  }
+  .header__main__icon {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+    @media (min-width: 640px) {
+      width: 40%;
+    }
+    .header__main__icon__router {
+      display: flex;
+      align-items: center;
+      .img {
+        width: 5rem;
+        height: 5rem;
+        margin: 0rem 0.5rem;
+      }
+      span {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: $base_brown;
+        @media (min-width: 640px) {
+          font-size: 1.875rem;
+          line-height: 2.25rem;
+        }
+      }
+    }
+  }
+}
+
+.header__menu {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top-width: 2px;
+  border-color: rgba(255, 255, 255, 0.8);
+  @media (min-width: 640px) {
+    border: none;
+    width: 60%;
+    margin-top: 0;
+  }
+}
+.header__menu__name {
+  display: inline-block;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: $base_brown;
+}
+.header__menu__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-right: 1.25rem;
+  @media (min-width: 640px) {
+    width: 2rem;
+    height: 2rem;
+  }
+  router-link {
+    display: block;
+  }
+}
