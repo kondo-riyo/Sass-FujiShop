@@ -1,0 +1,117 @@
+@import "../main.scss";
+
+.signup {
+}
+
+.signup__base {
+  display: flex;
+  height: 100%;
+  @media (min-width: 640px) {
+    min-width: 100%;
+  }
+}
+.signup__table {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  @media (min-width: 640px) {
+    width: 50%;
+  }
+}
+.signup__title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: $base_brown;
+  text-align: center;
+}
+.signup__all {
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: $base_green;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.5rem 1rem;
+}
+
+span {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: $base_red;
+}
+
+.signup__postal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.signup__postal_code {
+  width: 66.6667%;
+  padding-right: 0.5rem;
+}
+.signup__postal__btn {
+  width: 33.3333%;
+  margin-top: 2rem;
+  .signup__postal__btn_search {
+    padding: 0.7rem 1.7rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    background-color: $base_gray;
+    @media (min-width: 1024px) {
+      padding: 0.8rem 1.2rem;
+      margin: 0 1rem;
+    }
+  }
+}
+
+.signup__pass {
+  display: flex;
+  .signup__pass__show {
+    width: 4rem;
+  }
+}
+
+.signup__btn {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2 / span 2;
+  align-items: center;
+  .signup__btn__not {
+    margin: 1.25rem;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: $base_gray;
+    background-color: $base_gray--25;
+    border-radius: 9999px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .signup__btn__comp {
+    margin: 1rem 0;
+    padding: 0.8rem 3rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+.signup__send {
+  align-self: center;
+  color: $base_red;
+}

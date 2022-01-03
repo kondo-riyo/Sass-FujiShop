@@ -1,34 +1,29 @@
 <template>
   <div class="">
     <div>
-      <div 
-       class="
-        flex 
-        w-full justify-center items-center 
-        text-base_brown mt-4 -mb-2 text-center text-xl sm:text-2xl font-bold
-      ">
-      <div><img src="~/assets/img/fujicoffee.webp" class="w-12"/></div>
-      <div class="pt-2">FujiCoffeeオリジナル商品</div>
+      <div class="searchItems__title">
+      <div><img src="~/assets/img/fujicoffee.webp" class="searchItems__title__icon"/></div>
+      <div class="searchItems__title__msg">FujiCoffeeオリジナル商品</div>
       </div>
     </div>
-    <search-group data-testid="search" @searchItems="search" class="my-0 mx-auto" />
-    <div class="my-5 text-base_red font-bold">
-      <div v-show="resultNullFlg" class="text-center">
-        ※該当する商品がありません
+    <search-group data-testid="search" @searchItems="search" class="searchItems__input" />
+    <div class="searchItems__msg">
+      <div v-show="resultNullFlg">
+        ※ 該当する商品がありません
       </div>
-      <div v-show="keywordNullFlg" class="text-center">
-        ※検索ワードを入力してください
+      <div v-show="keywordNullFlg">
+        ※ 検索ワードを入力してください
       </div>
     </div>
 
-    <div class="flex flex-wrap justify-center">
+    <div class="searchItems__card">
       <div v-for="item in searchedItems" :key="item.id">
         <Card :item="item" :routerName="routerName.fujiShop" />
       </div>
     </div>
 
     <div
-      class="flex flex-wrap justify-center"
+      class="searchItems__card"
       v-show="searchedItems.length === 0"
     >
       <div v-for="item in itemsFromStore" :key="item.id">
@@ -108,3 +103,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../style/pages/searchItems.scss";
+
+</style>

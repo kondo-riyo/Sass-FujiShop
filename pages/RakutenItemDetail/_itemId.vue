@@ -1,104 +1,59 @@
 <template>
-  <div class="sm:pl-10 p-1 flex">
+  <!-- <div class="sm:pl-10 p-1 flex"> -->
+  <div class="itemId__base">
     <div v-if="!itemDetail">リロードして再度ご確認ください</div>
-    <div class="sm:w-3/4 my-0 mx-auto" v-if="itemDetail">
+    <div class="itemId__base__center" v-if="itemDetail">
       <!-- 戻るボタン追加 -->
-      <div
-        @click="back_onStep"
-        data-testid="back_onStep"
-        class="flex items-center group m-1"
-      >
-        <div
-          class="
-            bg-base_aka
-            bg-opacity-30
-            sm:bg-transparent
-            sm:group-hover:bg-base_aka
-            sm:group-hover:bg-opacity-30
-            p-3
-            sm:p-4
-            rounded-full
-          "
-        >
-          <img
-            src="~assets/img/yajirusi_icon.webp"
-            class="transform rotate-90 w-3 sm:w-5"
-          />
-        </div>
-        <div
-          class="
-            text-base_aka
-            text-opacity-80 text-sm
-            sm:text-base
-            font-bold
-            m-3
-            mx-1
-          "
-        >
-          一覧に戻る
-        </div>
+    <div 
+    @click="back_onStep"
+    class="back_onStep">
+      <div class="back_onStep__child">
+        <img src="~assets/img/yajirusi_icon.webp">
       </div>
+      <div class="back_onStep__msg">
+        一覧に戻る
+      </div>
+    </div>
+
       <Detail
         :itemDetail="itemDetail"
         :options="itemNum"
         v-model="selectedItemNum"
       />
 
-      <div class="sm:mt-5 mt-2 bg-white p-3 rounded-xl">
+      <!-- <div class="sm:mt-5 mt-2 bg-white p-3 rounded-xl">
         <span class="font-bold"> {{ itemDetail.shopName }}</span>
         <p class="mb-3 pl-2 text-xl">
           {{ itemDetail.moreDescription }}
         </p>
+      </div> -->
+
+      <div class="raku_itemId__detail__msg">
+        <span> {{ itemDetail.shopName }}</span>
+        <p>
+          {{ itemDetail.moreDescription }}
+        </p>
       </div>
 
-      <div class="flex flex-col items-end mt-5">
-        <div class="px-4 sm:py-3 py-1 sm:px-4">
-          <p class="text-gray-700 sm:text-4xl text-xl">
+      <div class="itemId__down">
+        <div class="itemId__down__total">
+          <p>
             合計
-            <span class="font-bold text-4xl">￥{{ calcTotalPrice }}</span>
+            <span>￥{{ calcTotalPrice }}</span>
           </p>
         </div>
-        <div class="flex">
-          <div class="py-1 pr-2 sm:py-2 sm:px-1">
+        <div class="itemId__down__button">
+          <div>
             <squareBottun
               data-testid="addCart"
-              class="
-                text-white
-                font-semibold
-                bg-base_red
-                sm:py-3 sm:px-4
-                py-1
-                px-4
-                rounded
-                transition
-                duration-200
-                transform-gpu
-                hover:scale-105
-                text-xm
-              "
               @click="addCart"
             >
               カートへ追加
             </squareBottun>
           </div>
-          <div class="py-1 pr-2 sm:py-2 sm:px-1">
+          <div>
             <router-link to="/Cart">
-              <squareBottun
-                class="
-                  text-white
-                  font-semibold
-                  bg-base_red
-                  sm:py-3 sm:px-4
-                  py-1
-                  px-4
-                  rounded
-                  transition
-                  duration-200
-                  transform-gpu
-                  hover:scale-105
-                  text-xm
-                "
-              >
+              <squareBottun>
                 カートを確認
               </squareBottun>
             </router-link>
@@ -106,41 +61,16 @@
         </div>
       </div>
 
-      <div
-        @click="back_onStep"
-        data-testid="back_onStep"
-        class="flex items-center group m-1"
-      >
-        <div
-          class="
-            bg-base_aka
-            bg-opacity-30
-            sm:bg-transparent
-            sm:group-hover:bg-base_aka
-            sm:group-hover:bg-opacity-30
-            p-3
-            sm:p-4
-            rounded-full
-          "
-        >
-          <img
-            src="~assets/img/yajirusi_icon.webp"
-            class="transform rotate-90 w-3 sm:w-5"
-          />
-        </div>
-        <div
-          class="
-            text-base_aka
-            text-opacity-80 text-sm
-            sm:text-base
-            font-bold
-            m-3
-            mx-1
-          "
-        >
-          一覧に戻る
-        </div>
+    <div 
+    @click="back_onStep"
+    class="back_onStep">
+      <div class="back_onStep__child">
+        <img src="~assets/img/yajirusi_icon.webp">
       </div>
+      <div class="back_onStep__msg">
+        一覧に戻る
+      </div>
+    </div>
     </div>
   </div>
 </template>
@@ -238,3 +168,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../../style/pages/itemId.scss";
+
+</style>

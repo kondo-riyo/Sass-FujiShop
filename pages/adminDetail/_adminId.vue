@@ -1,110 +1,71 @@
 <template>
-   <div class="p-1">
+   <div class="adminId__base">
     <div 
     @click="back_onStep"
-    class="
-    flex
-    items-center
-    group
-    m-1
-    ">
-      <div class="
-      bg-base_aka bg-opacity-30 sm:bg-transparent
-      sm:group-hover:bg-base_aka sm:group-hover:bg-opacity-30
-      p-3 sm:p-4
-      rounded-full
-      ">
-        <img src="~assets/img/yajirusi_icon.webp" class="transform rotate-90 w-3 sm:w-5">
+    class="back_onStep">
+      <div class="back_onStep__child">
+        <img src="~assets/img/yajirusi_icon.webp">
       </div>
-      <div class="text-base_aka text-opacity-80 text-sm sm:text-base font-bold m-3 mx-1">
+      <div class="back_onStep__msg">
         ユーザー情報一覧に戻る
       </div>
     </div>
-    <div class="grid justify-items-center">
-    <div>
 
-    <div
-      class="grid justify-items-center"
-    >
-      <div class="bg-white bg-opacity-60 rounded-xl w-screen lg:w-1000">
+    <div class="adminId">
+      <div class="adminId__table">
         <div
-          class="
-            bg-base_red
-            text-base_cream
-            font-bold
-            text-xl
-            rounded
-            border-solid border-2
-            border-base_red
-            flex
-            text-center
-          "
+          class="adminId__table__head"
         >
-          <div class="p-1 lg:w-3/5 lg:text-center text-2xl">
+          <div class="adminId__table__head__proinfo">
             商品情報
           </div>
-          <div class="p-1 lg:w-1/5 text-2xl hidden lg:inline-block">
+          <div class="adminId__table__head__deliinfo">
             配達情報
           </div>
-          <div class="p-1 lg:w-1/5 text-2xl hidden lg:inline-block">
+          <div class="adminId__table__head__em">
           </div>
         </div>
         <div
           v-for="logItem in getLogItems"
           :key="logItem.orderId"
-          class="
-            lg:flex
-            border-solid
-            rounded
-            border-b-2 border-r-2 border-l-2
-            border-base_red
-          "
-
+          class="adminId__table__body"
         > 
         <!--   1. アイテム情報 -->
           <div 
-           class="p-1 lg:w-3/5" >
+           class="adminId__item_info" >
             <div
               v-for="item in logItem.itemInfo"
               :key="item.specialId"
-              class="m-1 p-0"
             >
-              <div 
-                class="
-                  flex
-                  items-center
-                  lg:w-auto
-                  w-screen
-                  justify-center
-              ">
-                <div class="lg:w-1/4 w-2/5">
-                  <img class="rounded shadow-xl" :src="item.itemImg" />
+              <div class="adminId__item_info__up">
+                <div class="item_info__up__img">
+                  <img :src="item.itemImg" />
                 </div>
-                <div class="flex flex-col ml-1 w-96 w-3/5 lg:w-3/4">
-                  <div class="p-0 flex">
-                    <div class="w-3/4 truncate">
-                      <span class="font-bold lg:text-xl">{{
+                <div class="item_info__up__msg">
+                  <div class="flex">
+                    <div class="item_info__up__msg__itemName">
+                      <span>{{
                         item.itemName
                       }}</span
                       >×{{ item.itemNum }}
                     </div>
-                    <div class="w-1/4 lg:text-base text-xs">
+                    <div class="item_info__up__msg__itemPrice">
                       {{ item.itemPrice * item.itemNum }}円
                     </div>
                   </div>
                   <div
-                    class="p-1 lg:text-base text-xs flex"
+                    class="item_info__up__msg__topping"
                     v-for="(topping, index) in item.toppings"
                     :key="index"
                   >
-                    <div class="w-3/4">+{{ topping.name }}</div>
-                    <div class="w-1/4 lg:text-base text-xs">
+                    <div class="item_info__up__msg__topping__name">+{{ topping.name }}</div>
+                    <div class="item_info__up__msg__topping__price">
                       {{ topping.price }}円
                     </div>
                   </div>
-                  <div class="p-1 pt-5 flex">
-                    <div class="w-3/4 lg:text-base text-xs">合計</div>
-                    <div class="w-1/4 lg:text-base text-xs">
+                  <div class="item_info__up__msg__total">
+                    <div class="item_info__up__msg__total__gokei">合計</div>
+                    <div class="item_info__up__msg__total__price">
                       {{
                         item.itemPrice * item.itemNum + item.allToppingPrice
                       }}円
@@ -113,55 +74,20 @@
                 </div>
               </div>
             </div>
-            <div
-              class="
-                flex
-                items-center
-                border-solid border-t-2
-                border-base_gray
-                border-opacity-20
-                mt-3
-                py-3
-              "
-            >
-              <div class="w-16"></div>
-              <div class="lg:text-2xl text-lg lg:pr-0 pr-2 lg:w-2/6">
+            <div class="adminId__item_info__down">
+              <div class="item_info__down__em"></div>
+              <div class="item_info__down__msg">
                 合計金額
               </div>
-              <div class="lg:text-3xl text-xl font-bold">
+              <div class="item_info__down__price">
                 {{ logItem.orderInfo.allPrice }}円
               </div>
             </div>
          </div>
         <!-- 1. お客様情報 -->
-         <div
-            class="
-              w-80
-              bg-base_gray
-              bg-opacity-20
-              text-lg
-              flex flex-col
-              justify-center
-              items-center
-              pl-2
-              pb-3
-              lg:w-1/5
-              w-full
-            "
-          >
+         <div class="adminId__user_info">
             <div>
-              <div
-                class="
-                  lg:hidden
-                  text-xl
-                  border-solid
-                  border-base_red
-                  border-b-2 border-opacity-20
-                  pt-2
-                  pb-1
-                  mb-2
-                "
-              >
+              <div class="user_info__title">
                 配達情報
               </div>
               <div>注文者 : {{ logItem.orderInfo.name}} 様</div>
@@ -173,27 +99,12 @@
             </div>
           </div>
           <!-- 1. 配達情報 -->
-          <div
-            class="
-              w-80
-              bg-base_gray bg-opacity-20 lg:bg-transparent
-              border-base_red border-opacity-20 border-dashed border-t-2 lg:border-0
-              text-lg
-              flex flex-col
-              justify-center
-              items-center
-              pl-2
-              py-3
-              lg:w-1/5
-              w-full
-            "
-          >
+          <div class="adminId__deli_info">
             <div>
               <select
                 v-model="logItem.status"
                 @change="statusChange(logItem.orderId, logItem.status, params)"
                 name="配達status"
-                class="p-1 bg-base_red text-white text-center rounded"
                 data-testid="statusChange"
               >
                 <option value=1>未入金(代引き)</option>
@@ -209,26 +120,14 @@
 
           <!-- 1. 終わり -->
 
-      </div>
-    </div>
     </div>
     <div 
     @click="back_onStep"
-    class="
-    flex
-    items-center
-    group
-    m-1
-    ">
-      <div class="
-      bg-base_aka bg-opacity-30 sm:bg-transparent
-      sm:group-hover:bg-base_aka sm:group-hover:bg-opacity-30
-      p-3 sm:p-4
-      rounded-full
-      ">
-        <img src="~assets/img/yajirusi_icon.webp" class="transform rotate-90 w-3 sm:w-5">
+    class="back_onStep">
+      <div class="back_onStep__child">
+        <img src="~assets/img/yajirusi_icon.webp">
       </div>
-      <div class="text-base_aka text-opacity-80 text-sm sm:text-base font-bold m-3 mx-1">
+      <div class="back_onStep__msg">
         ユーザー情報一覧に戻る
       </div>
     </div>
@@ -305,3 +204,7 @@ export default Vue.extend({
   }
 });
 </script>
+<style lang="scss">
+@import "../../style/pages/adminId.scss";
+
+</style>

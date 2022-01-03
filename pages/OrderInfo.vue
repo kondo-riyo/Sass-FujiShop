@@ -1,61 +1,29 @@
 <template>
-  <div class="flex justify-center items-center">
-    <div class="bg-white sm:w-3/4 m-3 p-8 rounded">
-      <div
-        class="
-          flex
-          m-10
-          font-bold
-          sm:text-3xl
-          text-xl
-          text-base_red
-          justify-center
-        "
-      >
+  <div class="orderinfo">
+    <div class="orderinfo__base">
+      <div class="orderinfo__title">
         <p>
           <img
             src="~/assets/img/coffeebeans_icon.webp"
-            class="sm:m-2 m-1 w-6"
           />
         </p>
         <p>お届け先情報</p>
         <p>
           <img
             src="~/assets/img/coffeebeans_icon.webp"
-            class="sm:m-2 m-1 w-6"
           />
         </p>
       </div>
-      <div class="flex justify-center items-center">
+      <div class="orderinfo__table">
         <div>
-          <div class="p-3">
             <form
               @submit.prevent
-              class="
-                grid
-                justify-items-center
-                w-full
-                max-w-lg
-                mt-0
-                mb-0
-                mr-auto
-                ml-auto
-              "
             >
               <ValidationObserver v-slot="{ invalid }">
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        my-2
-                        ml-4
-                      "
+                <div class="orderinfo__table__base ">
+                  <div class="orderinfo__table__name">
+                    <label 
+                      class=""
                       for="grid-first-name"
                     >
                       名前
@@ -73,23 +41,13 @@
                         placeholder="例)田中 太朗"
                         @input="inputName"
                       />
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
-                  <div class="w-full md:w-1/2 px-3">
+                  <div class="orderinfo__table__mail">
                     <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        my-2
-                        ml-4
-                      "
                       for="grid-last-name"
                     >
                       メールアドレス
@@ -107,25 +65,15 @@
                         placeholder="例)sample@gmail.com"
                         @input="inputMail"
                       />
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
                 </div>
-                <div class="flex flex-wrap items-end -mx-3 mb-6">
-                  <div class="w-2/3 md:w-2/6 px-3">
+                <div class="orderinfo__table__base">
+                  <div class="orderinfo__table__postal">
                     <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        my-2
-                        ml-4
-                      "
                       for="grid-last-name"
                     >
                       郵便番号
@@ -143,12 +91,12 @@
                         placeholder="例)1234567"
                         @input="inputPostalcode"
                       />
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
-                  <div class="w-1/3 md:w-1/6 px-0 py-1">
+                  <div class="orderinfo__table__postal__btn">
                     <square-bottun
                       data-testid="yubinbango"
                       @click="yubinbango()"
@@ -156,18 +104,8 @@
                       検索
                     </square-bottun>
                   </div>
-                  <div class="w-full md:w-3/6 px-3">
+                  <div class="orderinfo__table__address">
                     <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        my-2
-                        ml-4
-                      "
                       for="grid-last-name"
                     >
                       住所
@@ -185,25 +123,15 @@
                         placeholder="例)東京都新宿区〇〇"
                         @input="inputAddress"
                       />
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full md:w-4/12 px-3 mb-6 md:mb-0">
+                <div class="orderinfo__table__base">
+                  <div class="orderinfo__table__tel">
                     <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        my-2
-                        ml-4
-                      "
                       for="grid-first-name"
                     >
                       電話番号
@@ -221,23 +149,13 @@
                         placeholder="例)00000000000"
                         @input="inputTel"
                       />
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
-                  <div class="w-2/3 md:w-5/12 px-3">
+                  <div class="orderinfo__table__deli_date">
                     <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        my-2
-                        ml-4
-                      "
                       for="grid-last-name"
                     >
                       配達日
@@ -255,23 +173,13 @@
                         placeholder=""
                         @input="inputDeliveryDate"
                       />
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
-                  <div class="w-1/3 md:w-3/12 px-3">
+                  <div class="orderinfo__table__deli_time">
                     <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        my-2
-                        ml-4
-                      "
                       for="grid-last-name"
                     >
                       配達時間
@@ -286,23 +194,21 @@
                         name="配達時間"
                         :options="options"
                       ></delivery-select>
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
                 </div>
-                <div class="flex flex-wrap items-start -mx-3 mb-2">
-                  <div class="w-full md:w-1/2 pt-6 px-3 mb-6 md:mb-0">
+                <div class="orderinfo__table__payment">
+                  <div class="orderinfo__table__payment__radio">
                     <validation-provider
                       v-slot="{ errors }"
                       name="pay"
                       rules="oneOf:1,2"
                     >
                       <div>
-                        <label
-                          class="tracking-wide text-gray-500 font-bold mb-2"
-                        >
+                        <label>
                           <input
                             v-model="payment"
                             data-testid="notcreditPay"
@@ -314,9 +220,7 @@
                         </label>
                       </div>
                       <div>
-                        <label
-                          class="tracking-wide text-gray-500 font-bold mb-2"
-                        >
+                        <label>
                           <input
                             data-testid="creditPay"
                             v-model="payment"
@@ -327,26 +231,17 @@
                           />クレジットカード
                         </label>
                       </div>
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
                   <div
-                    class="w-full md:w-1/2 px-3 mb-6 md:mb-0"
-                    v-if="selectPayment == true"
+                    class="orderinfo__table__credit"
+                    v-show="selectPayment == true"
                     id="selectPayment"
                   >
                     <label
-                      class="
-                        block
-                        uppercase
-                        tracking-wide
-                        text-base_green
-                        text-xs
-                        font-bold
-                        mb-2
-                      "
                       for="grid-last-name"
                     >
                       クレジットカード番号
@@ -364,27 +259,14 @@
                         placeholder="例)0000000000000000"
                         @input="inputCreditCardNum"
                       />
-                      <span class="text-xs text-red-700">
+                      <span class="orderinfo__table__span">
                         {{ errors[0] }}
                       </span>
                     </validation-provider>
                   </div>
                 </div>
-                <div
-                  class="flex flex-wrap justify-center items-start -mx-3 mb-2"
-                >
-                  <div
-                    v-if="invalid"
-                    class="
-                      font-semibold
-                      text-base_aka
-                      bg-base_cream
-                      py-3
-                      px-4
-                      mt-5
-                      rounded-full
-                    "
-                  >
+                <div class="orderinfo__total__btn">
+                  <div v-if="invalid">
                     ※入力内容が不足しています
                   </div>
                   <round-bottun
@@ -392,7 +274,6 @@
                     @click="OrderSubmit()"
                     :disabled="invalid"
                     v-if="!invalid"
-                    class="bg-base_aka"
                   >
                     ご注文を確定する
                   </round-bottun>
@@ -400,7 +281,6 @@
               </ValidationObserver>
             </form>
           </div>
-        </div>
       </div>
     </div>
   </div>
@@ -566,3 +446,7 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../style/pages/orderInfo.scss";
+
+</style>

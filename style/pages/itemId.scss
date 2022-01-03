@@ -1,0 +1,120 @@
+@import "../main.scss";
+
+.itemId__base {
+  display: flex;
+  padding: 0.25rem;
+  //   margin: 0 10rem;
+  @media (min-width: 640px) {
+    padding: 0.25rem 0.25rem 0.25rem 2.5rem;
+    // padding: 0.25rem 0.25rem;
+    // margin: 0;
+  }
+}
+.itemId__base__center {
+  margin: 0 auto;
+  @media (min-width: 640px) {
+    width: 75%;
+  }
+}
+
+.itemId__topping {
+  background-color: white;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  @media (min-width: 640px) {
+    margin-top: 1.25rem;
+  }
+  .itemId__topping__title {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    span {
+      font-weight: 700;
+    }
+  }
+  .itemId__topping__card {
+    display: flex;
+    flex-wrap: wrap;
+    .itemId__topping__card__base {
+      width: 50%;
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: 700;
+      @media (min-width: 640px) {
+        width: 20%;
+      }
+    }
+    .topping__card__msg {
+      background-color: $base_gray--25;
+      border-radius: 0.25rem;
+      padding: 0.25rem;
+      span {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .margin-left__1 {
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}
+
+.itemId__down {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 1.25rem;
+  color: $base_brown;
+  .itemId__down__total {
+    padding: 1rem 0.25rem;
+    @media (min-width: 640px) {
+      padding: 1rem 0.75rem;
+    }
+    p {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      @media (min-width: 640px) {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+      span {
+        font-weight: 700;
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+    }
+  }
+  .itemId__down__button {
+    display: flex;
+    div {
+      padding: 0.25rem 0.5rem 0.25rem 0;
+      @media (min-width: 640px) {
+        padding: 0.25rem 0.5rem;
+      }
+    }
+  }
+}
+
+.raku_itemId__detail__msg {
+  background-color: $base_of;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 0.2rem dashed $base_gray--25;
+  margin-top: 0.5rem;
+  color: $base_brown;
+  @media (min-width: 640px) {
+    margin-top: 1.25rem;
+  }
+  span {
+    font-weight: 700;
+  }
+  p {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}

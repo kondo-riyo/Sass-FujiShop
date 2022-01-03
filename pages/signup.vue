@@ -1,49 +1,17 @@
 <template>
-  <div
-    class="
-      flex
-      justify-center
-      bg-base_gray
-      bg-opacity-50
-      sm:bg-starbucks
-      bg-center bg-cover bg-no-repeat
-    "
-  >
-    <div class="sm:min-w-full flex h-full">
+  <div class="signup">
+    <div class="signup__base">
       <div
         type="text"
-        class="
-          bg-white bg-opacity-70
-          container
-          mx-auto
-          p-10
-          m-10
-          min-w-xs
-          sm:w-1/2
-          rounded-lg
-          overflow-hidden
-          shadow
-          flex flex-col
-        "
+        class="signup__table"
       >
         <div>
-          <h1 class="font-bold text-xl text-base_gray text-center">会員登録</h1>
+          <h1 class="signup__title">会員登録</h1>
         </div>
         <ValidationObserver v-slot="{ invalid }">
-          <div class="lg:grid lg:grid-cols-2 lg:gap-5">
+          <div class="signup__all">
             <div>
-              <label
-                class="
-                  block
-                  uppercase
-                  tracking-wide
-                  text-base_green
-                  text-xs
-                  font-bold
-                  my-2
-                  ml-4
-                "
-              >
+              <label>
                 名前
               </label>
               <validation-provider
@@ -57,26 +25,14 @@
                   type="text"
                   placeholder="例)田中 太朗"
                   @input="inputName"
-                  class="rounded-full"
                 />
-                <span class="text-xs text-red-700">
+                <span>
                   {{ errors[0] }}
                 </span>
               </validation-provider>
             </div>
             <div>
-              <label
-                class="
-                  block
-                  uppercase
-                  tracking-wide
-                  text-base_green
-                  text-xs
-                  font-bold
-                  my-2
-                  ml-4
-                "
-              >
+              <label>
                 メールアドレス
               </label>
               <validation-provider
@@ -90,27 +46,15 @@
                   type="text"
                   placeholder="例)sample@gmail.com"
                   @input="inputMail"
-                  class="rounded-full"
                 />
-                <span class="text-xs text-red-700">
+                <span>
                   {{ errors[0] }}
                 </span>
               </validation-provider>
             </div>
-            <div class="flex flex-wrap items-start">
-              <div class="w-2/3 pr-2">
-                <label
-                  class="
-                    block
-                    uppercase
-                    tracking-wide
-                    text-base_green
-                    text-xs
-                    font-bold
-                    my-2
-                    ml-4
-                  "
-                >
+            <div class="signup__postal">
+              <div class="signup__postal_code">
+                <label>
                   郵便番号
                 </label>
                 <validation-provider
@@ -125,36 +69,24 @@
                     type="number"
                     placeholder=""
                     @input="inputPostalcode"
-                    class="rounded-full"
                   />
-                  <span class="text-xs text-red-700">
+                  <span>
                     {{ errors[0] }}
                   </span>
                 </validation-provider>
               </div>
-              <div class="w-1/3 mt-8">
+              <div class="signup__postal__btn">
                 <round-bottun
                   data-testid="yubinbango"
                   @click="yubinbango()"
-                  class="bg-base_gray pt-3 w-20"
+                  class="signup__postal__btn_search"
                 >
                   検索
                 </round-bottun>
               </div>
             </div>
             <div>
-              <label
-                class="
-                  block
-                  uppercase
-                  tracking-wide
-                  text-base_green
-                  text-xs
-                  font-bold
-                  my-2
-                  ml-4
-                "
-              >
+              <label>
                 住所
               </label>
               <validation-provider
@@ -169,26 +101,14 @@
                   type="text"
                   placeholder="東京都新宿区"
                   @input="inputAddress"
-                  class="rounded-full"
                 />
-                <span class="text-xs text-red-700">
+                <span>
                   {{ errors[0] }}
                 </span>
               </validation-provider>
             </div>
             <div>
-              <label
-                class="
-                  block
-                  uppercase
-                  tracking-wide
-                  text-base_green
-                  text-xs
-                  font-bold
-                  my-2
-                  ml-4
-                "
-              >
+              <label>
                 電話番号
               </label>
               <validation-provider
@@ -202,26 +122,14 @@
                   type="text"
                   placeholder="例)090XXXXXXXX"
                   @input="inputTel"
-                  class="rounded-full"
                 />
-                <span class="text-xs text-red-700">
+                <span>
                   {{ errors[0] }}
                 </span>
               </validation-provider>
             </div>
             <div>
-              <label
-                class="
-                  block
-                  uppercase
-                  tracking-wide
-                  text-base_green
-                  text-xs
-                  font-bold
-                  my-2
-                  ml-4
-                "
-              >
+              <label>
                 パスワード
               </label>
               <validation-provider
@@ -229,16 +137,15 @@
                 name="パスワード"
                 rules="required"
               >
-                <div class="flex">
+                <div class="signup__pass">
                   <inputA
                     data-testid="inputPassword"
                     name="パスワード"
                     :type="inputType"
                     placeholder="例)*******"
                     @input="inputPassword"
-                    class="rounded-full"
                   />
-                  <div @click="onClick" class="w-16" data-testid="onClick">
+                  <div @click="onClick" class="signup__pass__show" data-testid="onClick">
                     <div v-show="isChecked">
                       <img src="~/assets/img/eye_icon.webp" />
                     </div>
@@ -247,25 +154,14 @@
                     </div>
                   </div>
                 </div>
-                <span class="text-xs text-red-700">
+                <span>
                   {{ errors[0] }}
                 </span>
               </validation-provider>
             </div>
-            <div class="flex justify-center col-span-2 items-center">
+            <div class="signup__btn">
               <div v-if="invalid" class="">
-                <div
-                  class="
-                    m-5
-                    p-2
-                    text-center
-                    font-semibold
-                    text-base_red
-                    bg-base_red
-                    bg-opacity-50
-                    rounded-full
-                  "
-                >
+                <div class="signup__btn__not">
                   ※入力内容が不足しています
                 </div>
               </div>
@@ -275,6 +171,7 @@
                   @click="signup"
                   :disabled="invalid"
                   v-if="!invalid"
+                  class="signup__btn__comp"
                 >
                   登録
                 </round-bottun>
@@ -282,8 +179,8 @@
             </div>
           </div>
         </ValidationObserver>
-        <div class="self-center">
-          <router-link to="/signin" class="text-blue-700">
+        <div class="signup__send">
+          <router-link to="/signin">
             会員登録済みの方はこちら
           </router-link>
         </div>
@@ -406,3 +303,19 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="scss">
+@import "../style/main.scss";
+@import "../style/pages/signup.scss";
+.signup {
+  background-color: $base_gray--25;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @media (min-width: 640px) {
+    background-image: url("../assets/img/coffee-2734137_1280.webp");
+  }
+}
+
+</style>

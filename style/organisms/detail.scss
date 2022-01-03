@@ -92,7 +92,7 @@
 .detail__num__select select:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  border: 0.3rem solid $base_orange;
+  border: 0.3rem solid $base_red;
   padding: 0.2rem 2.2rem 0.3rem 0.45rem;
 }
 .detail__num__select span {
@@ -101,7 +101,7 @@
   align-items: center;
   justify-content: center;
   right: 0px;
-  color: $base_orange;
+  color: $base_red;
   height: fit-content;
   width: 1rem;
   text-align: center;
