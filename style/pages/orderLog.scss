@@ -131,6 +131,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             span {
+              color: $base_brown;
               font-weight: 700;
               @media (min-width: 640px) {
                 font-size: 1.25rem;
@@ -254,6 +255,7 @@
         display: block;
         font-size: 1rem;
         line-height: 1.5rem;
+        transition: 0.5s;
         @media (min-width: 640px) {
           font-size: 1.125rem;
           line-height: 1.75rem;
