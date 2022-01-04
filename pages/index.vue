@@ -1,18 +1,4 @@
 <template>
-  <!-- <div class="sm:mt-10 mt-0">
-    <div class="sm:mb-20">
-      <swiper :options="headSwiperOption">
-        <swiper-slide>
-          <img src="~/assets/img/pancakes.webp" class="w-full h-full" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="~/assets/img/cookies.webp" class="w-full h-full" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="~/assets/img/breakfast640.webp" class="w-full h-full" />
-        </swiper-slide>
-      </swiper>
-    </div> -->
   <div class="index__base">
     <div class="index__swiper">
       <swiper :options="headSwiperOption">
@@ -29,15 +15,6 @@
     </div>
     
     <div class="index__rakuten">
-    <!-- <router-link
-      to="searchRakutenItems"
-      class="block border-t-2 border-base_gray border-opacity-50 p-5 text-xl sm:text-2xl font-bold text-gray-700"
-      >
-      <div class="flex w-full justify-center text-base_brown">
-      <div><img src="~/assets/img/Rakuten.webp" class="w-8 h-8"/></div>
-      <div class="">楽天商品</div>
-      </div>
-      </router-link> -->
     <router-link
       to="searchRakutenItems"
       class="index__rakuten__router"
@@ -47,7 +24,6 @@
       <div class="">楽天商品</div>
       </div>
       </router-link>
-    <!-- <div class="index__rakuten__swiper"> -->
     <div>
       <swiper :options="swiperOption">
         <swiper-slide v-for="item in RakutenItemsFromStore" :key="item.id">

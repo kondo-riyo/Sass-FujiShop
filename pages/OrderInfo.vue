@@ -96,10 +96,11 @@
                       </span>
                     </validation-provider>
                   </div>
-                  <div class="orderinfo__table__postal__btn">
+                  <div >
                     <square-bottun
                       data-testid="yubinbango"
                       @click="yubinbango()"
+                      class="orderinfo__table__postal__btn"
                     >
                       検索
                     </square-bottun>
