@@ -30,6 +30,9 @@
         <Card :item="item" :routerName="routerName.fujiShop" />
       </div>
     </div>
+      <button class="page_top" @click="scrollTop">
+        Topに戻る
+      </button>
   </div>
 </template>
 
@@ -95,6 +98,12 @@ export default Vue.extend({
         }
       }
     },
+    scrollTop(){
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
   },
   computed: {
     itemsFromStore(): itemType[] {
@@ -105,5 +114,89 @@ export default Vue.extend({
 </script>
 <style lang="scss">
 @import "../style/pages/searchItems.scss";
+.page_top {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    background: #fff;
+    color: #737373;
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px -6px rgba(0,0,0,.5), 0 3px 10px -4px rgba(0,0,0,.2);
+}
 
+// p{
+//   text-align: center;
+// }
+// .headerArea{
+//  height:50vh;
+//  width:100%;
+//  background-color:#5E454B;
+//  margin: 0;
+//  text-align: center;
+// }
+// .contents{
+//  height:120vh;
+//  width:100%;
+//  background-color:#F8F0DF;
+//  margin: 0;
+//  text-align: center;
+// }
+// h1,.hp{
+//   color: #F3F0D7;
+// }
+// h2{
+//  margin: 0;
+// }
+// #page_top{
+//   width: 90px;
+//   height: 90px;
+//   position: fixed;
+//   right: 10px;
+//   bottom: 0;
+//   opacity: 0;
+//   transition: all 1s ease;
+// }
+// #page_top.show {
+//     opacity: 0.6;
+//     transform: none;
+//  }
+// #page_top a{
+//   position: relative;
+//   display: block;
+//   width: 90px;
+//   height: 90px;
+//   text-decoration: none;
+// }
+// #page_top a::before{
+//   font-family: 'Font Awesome 5 Free';
+//   font-weight: 900;
+//   content: '\f102';
+//   font-size: 30px;
+//   color: #A12568;
+//   position: absolute;
+//   width: 30px;
+//   height: 30px;
+//   top: -40px;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   margin: auto;
+//   text-align: center;
+// }
+// #page_top a::after{
+//   content: 'TOP';
+//   font-size: 18px;
+//   position: absolute;
+//   top: 45px;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   margin: auto;
+//   text-align: center;
+//   color: #A12568;
+// }
 </style>
