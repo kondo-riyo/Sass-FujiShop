@@ -30,9 +30,12 @@
         <Card :item="item" :routerName="routerName.fujiShop" />
       </div>
     </div>
-      <button class="page_top" @click="scrollTop">
-        Topに戻る
-      </button>
+    <div class="page_top" @click="scrollTop">
+        <!-- <img src="../assets/img/round_top_yajirusi.png" > -->
+        <img src="../assets/img/page_top3.png" >
+     </div>
+      <!-- <button class="page_top" @click="scrollTop"> -->
+      <!-- </button> -->
   </div>
 </template>
 
@@ -118,14 +121,16 @@ export default Vue.extend({
     position: fixed;
     right: 10px;
     bottom: 10px;
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-    background: #fff;
-    color: #737373;
-    padding: 10px;
-    border: solid 1px;
-    border-radius: 50%;
-    box-shadow: 0 2px 10px -6px rgba(0,0,0,.5), 0 3px 10px -4px rgba(0,0,0,.2);
+    width: 7rem;
+    margin-bottom: 2rem;
+    // font-size: 1.2rem;
+    // line-height: 1.2rem;
+    // background: #fff;
+    // color: #737373;
+    // padding: 10px;
+    // border: solid 1px;
+    // border-radius: 50%;
+    // box-shadow: 0 2px 10px -6px rgba(0,0,0,.5), 0 3px 10px -4px rgba(0,0,0,.2);
 }
 
 // p{
