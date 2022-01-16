@@ -129,6 +129,11 @@ export default Vue.extend({
 .admin {
   background-color: $base_gray--25;
   height: 200px;
+//   display: flex;
+//   justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   @media (min-width: 640px) {
     background-image: url("../assets/img/coffee-2734137_1280.webp");
   }

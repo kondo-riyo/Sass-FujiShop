@@ -131,13 +131,14 @@
         ユーザー情報一覧に戻る
       </div>
     </div>
+     <page-top-button />
    </div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
 import { AdminStore } from '../../store';
 import { orderedItemType } from '../../types/cartItemType';
-
+import pageTopButton from '../../components/atoms/button/pageTopButton.vue';
 type DataType = {
   selectStatus: number;
   statusName: string;
@@ -176,6 +177,7 @@ export default Vue.extend({
       ]
     };
   },
+  components: { pageTopButton },
   computed: {
     getLogItems(): orderedItemType[] {
     // getLogItems():void{
