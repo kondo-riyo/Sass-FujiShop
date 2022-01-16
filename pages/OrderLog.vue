@@ -115,6 +115,7 @@
         </div>
       </div>
     </div>
+     <page-top-button />
   </div>
 </template>
 <script lang="ts">
@@ -124,7 +125,7 @@ import { orderedItemType } from '../types/cartItemType';
 import disableButton from '../components/atoms/button/disableButton.vue';
 import squareBottun from '../components/atoms/button/squareBottun.vue';
 import orderModal from '../components/organisms/orderModal.vue' 
-
+import pageTopButton from '../components/atoms/button/pageTopButton.vue';
 type DataType = {
       showContent: boolean,
       mordalOrderInfo: string,
@@ -140,7 +141,7 @@ export default Vue.extend({
       title: '注文履歴',
     };
   },
-  components:{disableButton,squareBottun,orderModal},
+  components:{disableButton,squareBottun,orderModal, pageTopButton},
   data(): DataType {
     return {
       showContent: false,

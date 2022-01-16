@@ -38,6 +38,7 @@
         <Card :item="item" :routerName="routerName.rakuten" />
       </div>
     </div>
+     <page-top-button />
   </div>
 </template>
 
@@ -47,6 +48,7 @@ import { ApiItemsStore } from '../store';
 import { itemType } from '../types/itemType';
 import Card from '../components/organisms/card.vue';
 import searchGroup from '../components/morecules/searchGroup.vue';
+import pageTopButton from '../components/atoms/button/pageTopButton.vue';
 type routerName = {
  rakuten: string;
 }
@@ -67,7 +69,7 @@ export default Vue.extend({
       title: '楽天商品',
     };
   },
-  components: { Card, searchGroup },
+  components: { Card, searchGroup, pageTopButton },
   data(): DataType {
     return {
       defaultItemsFlg: true,

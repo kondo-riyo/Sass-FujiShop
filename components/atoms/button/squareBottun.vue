@@ -1,14 +1,6 @@
 <template>
     <button
-      class="
-        bg-base_gray
-        hover:bg-opacity-75 hover:text-white
-        text-base_cream
-        font-bold
-        py-2
-        px-6
-        rounded-lg
-        "
+      class="square-button"
         @click="click"
     ><slot />
     </button>    
